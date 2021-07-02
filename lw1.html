@@ -1,0 +1,112 @@
+<style>
+img
+{
+position: absolute;
+left: 700px;
+top: 100px;
+
+}
+h4
+{
+font-family: 'Brush Script MT', cursive;
+margin-left: 30px;
+}
+div#d2
+{
+position: absolute;
+background-color: rgba(5,4,2,0.0);
+width:250px;
+height: 200px;
+
+}
+div#d1
+{
+position: absolute;
+width:250px;
+height: 150px;
+top: 250px;
+
+}
+
+form
+{
+width: 600px;
+position: absolute;
+height:50px;
+
+
+}
+
+input
+{
+width:40%;
+height:100%;
+padding-top: 20px;
+border: none;
+border-bottom:2px solid #5fa8d3;
+background-color: transparent;
+font-family: 'Brush Script MT', cursive;
+font-size: 15px;
+margin-left: 5px;
+
+
+}
+
+
+input:focus
+{
+outline: none;
+
+}
+
+button
+{
+position:absolute;
+background-color: transparent;
+color: black;
+border: 2px solid #5fa8d3;
+text-align: center;
+padding: 14px 40px;
+font-size: 15px;
+font-family: 'Brush Script MT', cursive;
+color: red;
+bottom: 240px;
+margin-left: 5px;
+}
+
+
+
+button:hover
+{
+background-color: #5fa8d3;
+color: white;
+
+}
+</style>
+<script>
+
+function cmd8()
+{
+var xhr = new XMLHttpRequest();
+var i=document.getElementById("in1").value
+xhr.open("GET", "http://192.168.56.108/cgi-bin/cmd8.py?plate_no=" +i, true);
+
+xhr.send();
+xhr.onload = function() {
+   var output8 = xhr.responseText;
+   document.getElementById("d1").innerHTML = output8;
+   }
+}
+
+</script>
+<body>
+<img src="anicar.png" width="600px" height="300px">
+<div style="top:20px; left:20px;"id='d2'>
+<form>
+<h4>VERIFY VEHICLE</h4>
+<input type='text' id='in1' name='fname' placeholder='Enter Registration Number'>
+</form>
+</div>
+<button  style="left: 20px; bottom:390px;"onclick="cmd8();">Verify</button>
+<div style="left:0px;" id="d1"></div>
+</body>
