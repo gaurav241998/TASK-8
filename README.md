@@ -1,4 +1,5 @@
-# TASK-8
+# Object Detection using CNN Model
+
 Object detection using CNN model
 Task Description 📄
 
